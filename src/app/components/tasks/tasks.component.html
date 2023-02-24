@@ -1,0 +1,9 @@
+<app-add-task (onSubmitTask)="addTask($event)"></app-add-task>
+<div class="list-group">
+  <app-task-item
+    *ngFor="let task of tasks"
+    [task]="task"
+    (onDeleteTask)="deleteTask(task)"
+    (onToggleTask)="toggleTask(task)"
+  ></app-task-item>
+</div>

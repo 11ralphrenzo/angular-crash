@@ -1,0 +1,16 @@
+<a
+  [ngClass]="{ reminder: task?.reminder }"
+  class="list-group-item list-group-item"
+  aria-current="true"
+  (dblclick)="onToggle(task)"
+>
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{ task?.text }}</h5>
+    <fa-icon
+      [icon]="faTimesIcon"
+      [ngStyle]="{ color: 'red' }"
+      (click)="onDelete(task)"
+    ></fa-icon>
+  </div>
+  <small>{{ task?.day }}</small>
+</a>
