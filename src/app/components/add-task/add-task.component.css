@@ -9,3 +9,7 @@ form {
 .expand {
     width: 100%;
 }
+
+mat-form-field, button {
+    width: 100%;
+}

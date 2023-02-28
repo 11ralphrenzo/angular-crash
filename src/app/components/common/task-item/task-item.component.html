@@ -1,10 +1,5 @@
-<a
-  [ngClass]="{ reminder: task?.reminder }"
-  class="list-group-item list-group-item"
-  aria-current="true"
-  (dblclick)="onToggle(task)"
->
-  <div class="d-flex w-100 justify-content-between">
+<div aria-current="true">
+  <!-- <div class="d-flex w-100 justify-content-between">
     <h5 class="mb-1">{{ task?.text }}</h5>
     <fa-icon
       [icon]="faTimesIcon"
@@ -12,5 +7,19 @@
       (click)="onDelete(task)"
     ></fa-icon>
   </div>
-  <small>{{ task?.day }}</small>
-</a>
+  <small>{{ task?.day }}</small> -->
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ task?.text }} </mat-card-title>
+      <mat-card-subtitle>{{ task?.day }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button (dblclick)="onToggle(task)">
+        {{ task?.reminder ? "Reminded" : "Remind Me" }}
+      </button>
+      <button mat-button (click)="onDelete(task)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<!-- [ngClass]="{ reminder: task?.reminder }" -->

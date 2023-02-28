@@ -1,17 +1,31 @@
 <form *ngIf="showAddTask" (ngSubmit)="onSubmit()">
   <div>
-    <div class="form-floating mb-3">
-      <input
-        class="form-control"
-        type="text"
-        name="text"
-        id="text"
-        placeholder="Add Task"
-        [(ngModel)]="text"
-      />
-      <label for="text">Add Task</label>
-    </div>
-    <div class="form-floating mb-3">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" name="text" [(ngModel)]="text" />
+      <button
+        *ngIf="text"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="text = ''"
+      >
+        <mat-icon>Close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose Date & Time</mat-label>
+      <input matInput type="date" name="day" value="day" [(ngModel)]="day" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+
+      <!-- <input matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker> -->
+    </mat-form-field>
+    <!-- <div class="form-floating mb-3">
       <input
         class="form-control"
         type="text"
@@ -21,22 +35,15 @@
         [(ngModel)]="day"
       />
       <label for="date">Add Date & Time</label>
-    </div>
-    <div class="form-check form-switch mb-3">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        role="switch"
-        name="reminder"
-        id="reminder"
-        [(ngModel)]="reminder"
-      />
-      <label class="form-check-label" for="reminder">Set Reminder</label>
-    </div>
-    <input
-      class="btn btn-primary mb-3 expand"
-      type="submit"
-      value="Save Task"
-    />
+    </div> -->
+    <mat-checkbox
+      name="reminder"
+      id="reminder"
+      labelPosition="after"
+      [(ngModel)]="reminder"
+    >
+      Set Reminder
+    </mat-checkbox>
+    <button mat-raised-button color="primary">Save Task</button>
   </div>
 </form>
